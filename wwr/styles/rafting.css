@@ -21,7 +21,10 @@ body {
     line-height: 1.6;
     background-color: var(--light-bg);
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .container {
     width: 90%;
     max-width: 1200px;
@@ -36,27 +39,40 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 9rem; 
 }
 
 .logo {
-    height: 60px;
+    height: 90px!important;
     width: auto;
 }
 
 .main-nav {
     display: flex;
-    justify-content: flex-end;
+    height: 100%;
 }
 
 .nav-list {
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
     gap: 2rem;
+    align-items: center;
 }
 
-nav a {
+.nav-link{
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
@@ -86,32 +102,38 @@ nav a {
     object-fit: cover;
 }
 
-.hero-title {
+.hero-content {
     position: absolute;
-    top: 40px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    max-width: 1200px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.hero-title {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 1rem 2rem;
     border-radius: 8px;
     color: var(--primary-color);
     font-size: 3rem;
-    text-align: center;
+    display: inline-block;
+    margin-bottom: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0;
 }
 
 /* Mission Card */
 .mission-card {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
-    width: 600px;
-    max-width: 80%;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    margin: 0 auto;
+    width: calc(100% - 40px); 
 }
 
 .mission-content {
@@ -120,11 +142,10 @@ nav a {
     align-items: center;
 }
 
-.mission-text h2 {
-    color: var(--secondary-color);
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
+.mission-text {
+    flex: 1;
+    text-align: left;
+    min-width: 0;
 }
 
 .happy-client {
@@ -132,7 +153,76 @@ nav a {
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; 
 }
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .mission-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+        min-height: 350px;
+    }
+    
+    .hero-content {
+        width: 95%;
+        top: 45%;
+    }
+    
+    .mission-card {
+        width: calc(100% - 20px);
+        padding: 1rem;
+        max-width: 90%;
+    }
+    
+    .mission-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .happy-client {
+        width: 60%;
+        max-width: 250px;
+        margin-top: 1rem;
+        order: -1; 
+    }
+    
+    .mission-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+    
+    .hero-title {
+        padding: 0.75rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .mission-card {
+        padding: 0.75rem;
+    }
+    
+    .happy-client {
+        width: 80%;
+    }
+}
+
+
 
 /* History Section */
 .history-section {
